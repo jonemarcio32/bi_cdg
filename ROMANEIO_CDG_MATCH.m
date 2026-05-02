@@ -14,7 +14,7 @@ let
             else if [HORACHEGADA] = null then "ERRO_HORA_CHEGADA_NULL"
             else if [USU_PLAVEI] = null or [USU_PLAVEI] = "" then "ERRO_PLACA_NULL"
             else if [NUMCAM] = null then "ERRO_NUMCAM_NULL"
-            else "OK",
+            else "OK"
         type text
     ),
 
