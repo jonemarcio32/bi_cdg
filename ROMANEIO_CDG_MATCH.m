@@ -31,7 +31,7 @@ let
         each
             if [DT_HR_ENTRADA] = null then "ERRO_DT_ENTRADA_NULL"
             else if [PLACA] = null or [PLACA] = "" then "ERRO_PLACA_NULL"
-            else "OK",
+            else "OK"
         type text
     ),
 
@@ -164,7 +164,7 @@ let
                 in
                     if TalhoesDiferentes > 1 then "SIM" else "NÃO"
             else
-                "NÃO",
+                "NÃO"
         type text
     ),
 
@@ -178,7 +178,7 @@ let
         each
             if [ID_VIAGEM_N1] <> null then "1_PLACA_EXATA"
             else if [ID_VIAGEM_N2] <> null then "2_TALHAO_NA_VIAGEM"
-            else "0_SEM_MATCH",
+            else "0_SEM_MATCH"
         type text
     ),
 
@@ -188,7 +188,7 @@ let
         each
             if [NIVEL_MATCH] = "1_PLACA_EXATA" then [ID_VIAGEM_N1]
             else if [NIVEL_MATCH] = "2_TALHAO_NA_VIAGEM" then [ID_VIAGEM_N2]
-            else null,
+            else null
         type number
     ),
 
@@ -216,7 +216,7 @@ let
                     in
                         DiffDias <= 3
             else
-                false,
+                false
         type logical
     ),
 
@@ -240,7 +240,7 @@ let
                              else if [NIVEL_MATCH] = "2_TALHAO_NA_VIAGEM" then [DT_CHEGADA_CDG_N2]
                              else null
                 in
-                    if DT_CDG = null then null else Number.Abs(Duration.Days(DT_CDG - [DATACHEGADA])),
+                    if DT_CDG = null then null else Number.Abs(Duration.Days(DT_CDG - [DATACHEGADA]))
         type number
     ),
 
@@ -266,7 +266,7 @@ let
                     in
                         Number.Abs([MINUTOS_CHEGADA_ROM] - MinCDG)
             else
-                null,
+                null
         type number
     ),
 
@@ -294,7 +294,7 @@ let
                 else if [DIFERENCA_HORA_MINUTOS] <= 10 then 70
                 else 0
             else
-                0,
+                0
         type number
     ),
 
@@ -317,7 +317,7 @@ let
                 in
                     if DT_COLHEITA_ROMANEIO = null or DT_COLHEITA_CDG_VAL = null then "SEM_INFO"
                     else if DT_COLHEITA_ROMANEIO = DT_COLHEITA_CDG_VAL then ""
-                    else "SIM",
+                    else "SIM"
         type text
     ),
 
@@ -340,7 +340,7 @@ let
                 else if [DATA_COLHEITA_DIVERGENTE] = "SIM" then "DIVERGENTE_DATA_COLHEITA"
                 else "MATCH_TALHAO_VIAGEM"
             else
-                "SEM_MATCH",
+                "SEM_MATCH"
         type text
     ),
 
@@ -361,7 +361,7 @@ let
                 else "NENHUMA"
             else if [NIVEL_MATCH] = "2_TALHAO_NA_VIAGEM" then "MEDIA ⚠️"
             else
-                "NENHUMA",
+                "NENHUMA"
         type text
     ),
 
@@ -422,7 +422,7 @@ let
                         then "⚠️ SCORE_FRACO (" & Confianca & ") | ROMANEIO: Placa=" & PlacaRom & ", Talhão=" & Text.From(NumCAM_Rom) & " " & Text.From(DataRom) & " " & Text.From(HoraRom) & " | CDG: Talhão=" & CD_TALHAO_CDG & " " & Text.From(DataCDG) & " | Desvio: " & Text.From(Int32.From(DiffMin)) & " min" & ObservacaoMultiplos
                     else "✅ MATCH_TALHAO_VIAGEM (" & Confianca & ") | ROMANEIO: Placa=" & PlacaRom & ", Talhão=" & Text.From(NumCAM_Rom) & " " & Text.From(DataRom) & " | CDG: Talhão=" & CD_TALHAO_CDG & " | Desvio: " & Text.From(Int32.From(DiffMin)) & " min" & ObservacaoMultiplos
                 else
-                    "❌ SEM_MATCH | Nenhuma correspondência encontrada",
+                    "❌ SEM_MATCH | Nenhuma correspondência encontrada"
         type text
     ),
 
@@ -443,7 +443,7 @@ let
             else if [ID_VIAGEM_CONSOLIDADO] = null then null
             else if [SCORE_CONFIANCA] = 0 then null
             else if [STATUS_MATCH] = "DIVERGENTE_DATA_COLHEITA" then null
-            else [ID_VIAGEM_CONSOLIDADO],
+            else [ID_VIAGEM_CONSOLIDADO]
         type number
     ),
 
@@ -452,7 +452,7 @@ let
         "PLACA_CDG_SUGERIDA",
         each
             if [NIVEL_MATCH] = "2_TALHAO_NA_VIAGEM" then [PLACA_CDG_N2]
-            else null,
+            else null
         type text
     ),
 
@@ -462,7 +462,7 @@ let
         each
             if [NIVEL_MATCH] = "1_PLACA_EXATA" then [ID_CAMINHAO_N1]
             else if [NIVEL_MATCH] = "2_TALHAO_NA_VIAGEM" then [ID_CAMINHAO_N2]
-            else null,
+            else null
         type text
     ),
 
@@ -479,7 +479,7 @@ let
         each
             if [NIVEL_MATCH] = "1_PLACA_EXATA" then [QTD_LINHAS_N1]
             else if [NIVEL_MATCH] = "2_TALHAO_NA_VIAGEM" then [QTD_LINHAS_N2]
-            else null,
+            else null
         type number
     ),
 
@@ -489,7 +489,7 @@ let
         each
             if [NIVEL_MATCH] = "1_PLACA_EXATA" then [COMPLETUDE_CDG_N1]
             else if [NIVEL_MATCH] = "2_TALHAO_NA_VIAGEM" then [COMPLETUDE_CDG_N2]
-            else "INCOMPLETO ⚠️",
+            else "INCOMPLETO ⚠️"
         type text
     ),
 
